@@ -5,7 +5,7 @@ import org.testng.annotations.*;
 
 public class Tests {
 
-    @Test (priority = 0)
+    @Test
     public void loginTest(){
         System.out.println("Login in the app");
     }
