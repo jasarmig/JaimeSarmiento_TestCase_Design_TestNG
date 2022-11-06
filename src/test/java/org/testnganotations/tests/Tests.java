@@ -2,32 +2,36 @@ package org.testnganotations.tests;
 
 
 import org.testng.annotations.*;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 public class Tests {
 
+    Logger logger = LoggerFactory.getLogger(Tests.class);
+
     @Test
     public void loginTest(){
-        System.out.println("Login in the app");
+        logger.info("Login in the app");
     }
 
     @Test (priority = 1)
     public void deactivateTest(){
-        System.out.println("User deactivated successfully!");
+        logger.info("User deactivated successfully!");
     }
 
     @Test (priority = 2)
     public void logoutTest(){
-        System.out.println("Login out the app");
+        logger.info("Login out the app");
     }
 
     @BeforeSuite
     public void openBrowser(){
-        System.out.println("Browser opened");
+        logger.info("Browser opened");
     }
 
     @AfterSuite
     public void closeBrowser(){
-        System.out.println("Browser closed");
+        logger.info("Browser closed");
     }
 
 }
