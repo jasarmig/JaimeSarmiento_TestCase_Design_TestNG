@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="My test suite" verbose="1">
+<suite name="My test suite">
     <test name="First test">
         <classes>
             <class name="org.testnganotations.tests.Tests">
