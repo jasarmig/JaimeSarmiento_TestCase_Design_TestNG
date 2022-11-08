@@ -3,7 +3,7 @@
 <suite name="My test suite">
     <test name="First test">
         <classes>
-            <class name="org.testnganotations.tests.Tests">
+            <class name="org.testnganotations.tests.UserTests">
             </class>
         </classes>
     </test>
