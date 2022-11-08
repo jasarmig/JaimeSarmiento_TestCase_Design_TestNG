@@ -12,33 +12,33 @@ public class UserTests {
 
     @Test
     public void loginTest(){
-        logger.info("A valid account is needed");
         logger.info("Login to the app");
     }
 
-    @Test (priority = 1)
+    @Test
     public void deactivateTest(){
-        logger.info("A valid account is needed");
-        logger.info("User must be logged in");
+        logger.warn("User must be logged in");
         logger.info("User deactivated successfully!");
     }
 
-    @Test (priority = 2)
+    @Test
     public void logoutTest(){
-        logger.info("A valid account is needed");
-        logger.info("User must be logged in");
+        logger.warn("User must be logged in");
         logger.info("Logout off the app");
     }
 
     @BeforeMethod
     public void openBrowser(){
+        logger.info("************** TEST BEGINS HERE **************");
         logger.info("Browser opened");
         logger.info("Opening " + website);
+        logger.warn("A valid account is needed");
     }
 
     @AfterMethod
     public void closeBrowser(){
         logger.info("Browser closed");
     }
-    
+
+
 }
