@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="ESPN Test Suite">
+    <listeners>
+        <listener class-name="org.espn.utils.Listener"/>
+    </listeners>
+
+    <parameter name="url" value="https://www.espnqa.com/?src=com&_adblock=true"/>
+
+    <test name="Login Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="org.espn.tests.Login"></class>
+        </classes>
+    </test>
+
+</suite>
