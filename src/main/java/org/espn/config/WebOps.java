@@ -1,13 +1,23 @@
-package org.espn;
+package org.espn.config;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
+
+import static org.openqa.selenium.support.PageFactory.initElements;
 
 public class WebOps {
 
     private final WebDriver driver;
-    private final WenDriverWait wait;
+    private final WebDriverWait wait;
 
     public WebOps(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriver(drive, Duration.ofSeconds(5L));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5L));
         initElements(driver, this);
     }
 
