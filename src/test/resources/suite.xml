@@ -6,6 +6,8 @@
     </listeners>
 
     <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>
+    <parameter name="user" value="je.sarmiento+8@globant.com"/>
+    <parameter name="pass" value="N0seasap0"/>
 
     <test name="Login Test">
         <parameter name="browser" value="chrome"/>
@@ -14,7 +16,7 @@
         </classes>
     </test>
 
-    <test name="Logout Test">
+   <test name="Logout Test">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="org.espn.tests.Logout"></class>

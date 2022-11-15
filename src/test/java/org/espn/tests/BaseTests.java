@@ -27,6 +27,8 @@ public class BaseTests {
         driver.getDriver().get(url);
         driver.getDriver().manage().window().maximize();
         homepage = new Homepage(driver.getDriver());
+        driver.getDriver().switchTo().frame(homepage.getBannerFrame());
+        homepage.clickElement(homepage.getBannerCloseBtn());
     }
 
     @AfterTest

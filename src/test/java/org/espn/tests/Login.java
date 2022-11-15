@@ -11,16 +11,16 @@ import static org.hamcrest.Matchers.is;
 
 public class Login extends BaseTests {
 
-    @Parameters({"url"})
+    @Parameters({"url","user","pass"})
     @Test
-    public void loginTest(String url){
+    public void loginTest(String url,String user,String pass){
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
         checkThat("ESPN logo is displayed", homepage.getLogo().isDisplayed(), is(true));
         checkThat("User email input is displayed", homepage.getUsername().isDisplayed(), is(true));
         checkThat("Password input is displayed", homepage.getUserPass().isDisplayed(), is(true));
-        homepage.typeOfInput(homepage.getUsername(), "je.sarmiento+8@globant.com");
-        homepage.typeOfInput(homepage.getUserPass(), "pop1280c" );
+        homepage.typeOfInput(homepage.getUsername(), user);
+        homepage.typeOfInput(homepage.getUserPass(), pass );
         homepage.clickElement(homepage.getSubmit());
         Reporter.info("User is logged in");
         Reporter.info("Navigating to Watch page");

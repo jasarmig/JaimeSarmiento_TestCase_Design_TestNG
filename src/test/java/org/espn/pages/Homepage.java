@@ -87,6 +87,20 @@ public class Homepage extends WebOps {
     @FindBy(css = "#Title > span")
     private WebElement iFrameTitle;
 
+    @FindBy(css = ".promo-banner-container > iframe")
+    private WebElement bannerFrame;
+
+    @FindBy(css = "#fittPageContainer .PromoBanner__CloseBtn")
+    private WebElement bannerCloseBtn;
+
+    public WebElement getBannerFrame() {
+        return bannerFrame;
+    }
+
+    public WebElement getBannerCloseBtn() {
+        return bannerCloseBtn;
+    }
+
     public WebElement getLogo() {
         return logo;
     }

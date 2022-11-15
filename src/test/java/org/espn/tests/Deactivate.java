@@ -2,6 +2,7 @@ package org.espn.tests;
 
 import org.espn.reporting.Reporter;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
@@ -10,18 +11,20 @@ import static org.hamcrest.Matchers.is;
 public class Deactivate extends BaseTests {
 
     @BeforeMethod
-    public void login(){
+    @Parameters({"user","pass"})
+    public void login(String user, String pass){
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        homepage.typeOfInput(homepage.getUsername(), "je.sarmiento+8@globant.com");
-        homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
+        homepage.typeOfInput(homepage.getUsername(), user);
+        homepage.typeOfInput(homepage.getUserPass(), pass);
         homepage.clickElement(homepage.getSubmit());
         Reporter.info("User is logged in");
         homepage.placeMouseOn(homepage.getUserMenu());
     }
 
     @Test
-    public void deactivate(){
+    @Parameters({"user","pass"})
+    public void deactivate(String user, String pass){
         homepage.waitForClickable(homepage.getProfileBtn());
         homepage.clickElement(homepage.getProfileBtn());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
@@ -34,8 +37,8 @@ public class Deactivate extends BaseTests {
         driver.getDriver().switchTo().defaultContent();
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        homepage.typeOfInput(homepage.getUsername(), "je.sarmiento+8@globant.com");
-        homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
+        homepage.typeOfInput(homepage.getUsername(), user);
+        homepage.typeOfInput(homepage.getUserPass(), pass);
         homepage.clickElement(homepage.getSubmit());
         checkThat("Account has been deactivated", homepage.getiFrameTitle().getText(), is("Account Deactivated"));
     }
