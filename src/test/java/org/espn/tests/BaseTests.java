@@ -3,6 +3,8 @@ package org.espn.tests;
 import org.espn.config.Driver;
 import org.espn.pages.Homepage;
 import org.espn.reporting.Reporter;
+import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -27,8 +29,17 @@ public class BaseTests {
         homepage = new Homepage(driver.getDriver());
     }
 
-    /*@AfterTest
+    @AfterTest
     public void endTest(){
         driver.getDriver().quit();
-    }*/
+    }
+
+    protected <T> void checkThat(String description, T actualValue, Matcher<? super T> expectedValue) {
+        Reporter.info(format("Checking that " + description.toLowerCase() + " [Expected: %s]", expectedValue));
+        try {
+            MatcherAssert.assertThat(actualValue,expectedValue);
+        } catch (AssertionError e) {
+            Reporter.error(format("Assertion error: [%s]", e.getMessage().replaceAll("\n", "")));
+        }
+    }
 }

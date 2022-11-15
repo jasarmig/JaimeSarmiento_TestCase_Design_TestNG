@@ -1,9 +1,10 @@
 package org.espn.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class WatchPage {
+public class WatchPage extends Homepage{
 
     @FindBy(className = "Carousel")
     private WebElement carousel;
@@ -12,4 +13,7 @@ public class WatchPage {
     private WebElement interestElement;
 
 
+    public WatchPage(WebDriver driver) {
+        super(driver);
+    }
 }

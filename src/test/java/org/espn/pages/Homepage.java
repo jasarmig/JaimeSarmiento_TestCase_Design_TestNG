@@ -30,7 +30,7 @@ public class Homepage extends WebOps {
     private WebElement userPass;
 
     @FindBy(id = "BtnSubmit")
-    private WebElement loginSubmit;
+    private WebElement submit;
 
     @FindBy(id = "BtnCancel")
     private WebElement cancel;
@@ -38,7 +38,9 @@ public class Homepage extends WebOps {
     @FindBy(css = ".BucketsContainer>div:first-child .Carousel__Inner>li:nth-child(2)")
     private WebElement secondElement;
 
-    //@FindBy(className = ".lightbox__closebtn")
+    @FindBy(css = ".BucketsContainer>div:first-child .Carousel__Inner>li:nth-child(2)>a>div:nth-child(2)")
+    private WebElement tileContent;
+
     @FindBy(css = "button.lightbox__closebtn")
     private WebElement closePopup;
 
@@ -51,47 +53,87 @@ public class Homepage extends WebOps {
     @FindBy(id = "AccountDeleteLink")
     private WebElement deleteAccountLink;
 
-    @FindBy(css = ".global-overlay[role=\"alert\"]")
-    private WebElement check;
-
     @FindBy(id = "TextError")
     private WebElement byError;
 
+    public WebElement getLogo() {
+        return logo;
+    }
 
-    public WebElement getElement(String element) {
-        switch (element){
-            case "userMenu":
-                return userMenu;
-            case "loginButton":
-                return loginButton;
-            case "watchButton":
-                return watchButton;
-            case "iFrame":
-                return iFrame;
-            case "userHandle":
-                return userHandle;
-            case "userPass":
-                return userPass;
-            case "loginSubmit":
-                return loginSubmit;
-            case "secondElement":
-                return secondElement;
-            case "closePopup":
-                return closePopup;
-            case "logout":
-                return logout;
-            case "profile":
-                return profile;
-            case "deleteAccount":
-                return deleteAccountLink;
-            case "check":
-                return check;
-            case "cancel":
-                return cancel;
-            case "error":
-                return byError;
-            default:
-                return null;
-        }
+    @FindBy(id = "logo")
+    private WebElement logo;
+
+    @FindBy(css = ".display-user")
+    private WebElement userName;
+
+    @FindBy(className = "lightbox__contentBox")
+    private WebElement watchLightbox;
+
+    public WebElement getWatchLightbox() {
+        return watchLightbox;
+    }
+
+    public WebElement getUserName() {
+        return userName;
+    }
+
+    public WebElement getTileContent() {
+        return tileContent;
+    }
+
+    public WebElement getUserMenu() {
+        return userMenu;
+    }
+
+    public WebElement getLoginButton() {
+        return loginButton;
+    }
+
+    public WebElement getWatchButton() {
+        return watchButton;
+    }
+
+    public WebElement getiFrame() {
+        return iFrame;
+    }
+
+    public WebElement getUserHandle() {
+        return userHandle;
+    }
+
+    public WebElement getUserPass() {
+        return userPass;
+    }
+
+    public WebElement getSubmit() {
+        return submit;
+    }
+
+    public WebElement getCancel() {
+        return cancel;
+    }
+
+    public WebElement getSecondElement() {
+        return secondElement;
+    }
+
+    public WebElement getClosePopup() {
+        return closePopup;
+    }
+
+    public WebElement getLogout() {
+        return logout;
+    }
+
+    public WebElement getProfile() {
+        return profile;
+    }
+
+    public WebElement getDeleteAccountLink() {
+        return deleteAccountLink;
+    }
+
+    public WebElement getByError() {
+        return byError;
     }
 }

@@ -51,7 +51,7 @@ public class WebOps {
     }
 
     public void placeMouseOn(WebElement element){
-        waitForClickable(element);
+        waitForVisibility(element);
         action.moveToElement(element).perform();
     }
 }

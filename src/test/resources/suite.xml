@@ -14,7 +14,7 @@
         </classes>
     </test>
 
-    <test name="Logout Test">
+   <!-- <test name="Logout Test">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="org.espn.tests.Logout"></class>
@@ -26,6 +26,6 @@
         <classes>
             <class name="org.espn.tests.Deactivate"></class>
         </classes>
-    </test>
+    </test>-->
 
 </suite>

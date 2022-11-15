@@ -9,24 +9,24 @@ public class Logout extends BaseTests {
     @BeforeMethod
     public void login(){
         Reporter.info("Click on Login Button");
-        homepage.clickElement(homepage.getElement("loginButton"));
+        homepage.clickElement(homepage.getLoginButton());
         Reporter.info("Switching to iFrame");
-        driver.getDriver().switchTo().frame(homepage.getElement("iFrame"));
+        driver.getDriver().switchTo().frame(homepage.getiFrame());
         Reporter.info("User email input");
-        homepage.typeOfInput(homepage.getElement("userHandle"), "je.sarmiento+2@globant.com");
+        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+2@globant.com");
         Reporter.info("User password input");
-        homepage.typeOfInput(homepage.getElement("userPass"), "pop1280c");
+        homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
         Reporter.info("Loging in");
-        homepage.clickElement(homepage.getElement("loginSubmit"));
+        homepage.clickElement(homepage.getSubmit());
     }
     @Test
     public void logoutTest() {
-        homepage.waitForVisibility(homepage.getElement("userMenu"));
-        homepage.waitForClickable(homepage.getElement("userMenu"));
-        homepage.placeMouseOn(homepage.getElement("userMenu"));
-        homepage.clickElement(homepage.getElement("logout"));
-        homepage.waitForVisibility(homepage.getElement("userMenu"));
-        homepage.waitForClickable(homepage.getElement("userMenu"));
-        homepage.placeMouseOn(homepage.getElement("userMenu"));
+        homepage.waitForVisibility(homepage.getUserMenu());
+        homepage.waitForClickable(homepage.getUserMenu());
+        homepage.placeMouseOn(homepage.getUserMenu());
+        homepage.clickElement(homepage.getLogout());
+        homepage.waitForVisibility(homepage.getUserMenu());
+        homepage.waitForClickable(homepage.getUserMenu());
+        homepage.placeMouseOn(homepage.getUserMenu());
     }
 }
