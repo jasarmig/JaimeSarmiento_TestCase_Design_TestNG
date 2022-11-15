@@ -29,10 +29,10 @@ public class BaseTests {
         homepage = new Homepage(driver.getDriver());
     }
 
-    /*@AfterTest
+    @AfterTest
     public void endTest(){
         driver.getDriver().quit();
-    }*/
+    }
 
     protected <T> void checkThat(String description, T actualValue, Matcher<? super T> expectedValue) {
         Reporter.info(format("Checking that " + description.toLowerCase() + " [Expected: %s]", expectedValue));

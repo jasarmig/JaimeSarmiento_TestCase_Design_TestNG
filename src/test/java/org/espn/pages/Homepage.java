@@ -69,6 +69,13 @@ public class Homepage extends WebOps {
     @FindBy(className = "lightbox__contentBox")
     private WebElement watchLightbox;
 
+    @FindBy(css = "#Title > span")
+    private WebElement iFrameTitle;
+
+    public WebElement getiFrameTitle() {
+        return iFrameTitle;
+    }
+
     public WebElement getWatchLightbox() {
         return watchLightbox;
     }

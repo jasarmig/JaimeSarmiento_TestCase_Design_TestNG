@@ -20,8 +20,8 @@ public class Login extends BaseTests {
         checkThat("ESPN logo is displayed", homepage.getLogo().isDisplayed(), is(true));
         checkThat("User email input is displayed", homepage.getUserHandle().isDisplayed(), is(true));
         checkThat("Password input is displayed", homepage.getUserPass().isDisplayed(), is(true));
-        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+7@globant.com");
-        homepage.typeOfInput(homepage.getUserPass(), "Ailatan9843" );
+        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+8@globant.com");
+        homepage.typeOfInput(homepage.getUserPass(), "pop1280c" );
         homepage.clickElement(homepage.getSubmit());
         Reporter.info("User is logged in");
         Reporter.info("Navigating to Watch page");

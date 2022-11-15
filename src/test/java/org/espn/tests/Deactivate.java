@@ -1,14 +1,11 @@
 package org.espn.tests;
 
-import org.espn.config.Driver;
 import org.espn.reporting.Reporter;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 
-import static java.lang.String.format;
+import static org.hamcrest.Matchers.is;
 
 public class Deactivate extends BaseTests {
 
@@ -16,7 +13,7 @@ public class Deactivate extends BaseTests {
     public void login(){
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+6@globant.com");
+        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+8@globant.com");
         homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
         homepage.clickElement(homepage.getSubmit());
         Reporter.info("User is logged in");
@@ -33,7 +30,15 @@ public class Deactivate extends BaseTests {
         homepage.clickElement(homepage.getDeleteAccountLink());
         homepage.waitForClickable(homepage.getCancel());
         homepage.clickElement(homepage.getSubmit());
+        checkThat("Account has been deleted", homepage.getiFrameTitle().getText(), is("Your account has been deleted."));
         homepage.waitForClickable(homepage.getByError());
         homepage.clickElement(homepage.getSubmit());
+        driver.getDriver().switchTo().defaultContent();
+        homepage.clickElement(homepage.getLoginButton());
+        driver.getDriver().switchTo().frame(homepage.getiFrame());
+        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+8@globant.com");
+        homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
+        homepage.clickElement(homepage.getSubmit());
+        checkThat("Account has been deactivated", homepage.getiFrameTitle().getText(), is("Account Deactivated"));
     }
 }
