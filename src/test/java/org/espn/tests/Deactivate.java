@@ -13,7 +13,7 @@ public class Deactivate extends BaseTests {
     public void login(){
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+8@globant.com");
+        homepage.typeOfInput(homepage.getUsername(), "je.sarmiento+8@globant.com");
         homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
         homepage.clickElement(homepage.getSubmit());
         Reporter.info("User is logged in");
@@ -24,19 +24,19 @@ public class Deactivate extends BaseTests {
 
     @Test
     public void deactivate(){
-        homepage.waitForClickable(homepage.getProfile());
-        homepage.clickElement(homepage.getProfile());
+        homepage.waitForClickable(homepage.getProfileBtn());
+        homepage.clickElement(homepage.getProfileBtn());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
         homepage.clickElement(homepage.getDeleteAccountLink());
         homepage.waitForClickable(homepage.getCancel());
         homepage.clickElement(homepage.getSubmit());
         checkThat("Account has been deleted", homepage.getiFrameTitle().getText(), is("Your account has been deleted."));
-        homepage.waitForClickable(homepage.getByError());
+        homepage.waitForClickable(homepage.getByErrorLink());
         homepage.clickElement(homepage.getSubmit());
         driver.getDriver().switchTo().defaultContent();
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+8@globant.com");
+        homepage.typeOfInput(homepage.getUsername(), "je.sarmiento+8@globant.com");
         homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
         homepage.clickElement(homepage.getSubmit());
         checkThat("Account has been deactivated", homepage.getiFrameTitle().getText(), is("Account Deactivated"));

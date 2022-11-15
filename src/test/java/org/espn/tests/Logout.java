@@ -12,7 +12,7 @@ public class Logout extends BaseTests {
     public void login(){
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+8@globant.com");
+        homepage.typeOfInput(homepage.getUsername(), "je.sarmiento+8@globant.com");
         homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
         homepage.clickElement(homepage.getSubmit());
         Reporter.info("User is logged in");
@@ -22,7 +22,7 @@ public class Logout extends BaseTests {
         homepage.waitForVisibility(homepage.getUserMenu());
         homepage.waitForClickable(homepage.getUserMenu());
         homepage.placeMouseOn(homepage.getUserMenu());
-        homepage.clickElement(homepage.getLogout());
+        homepage.clickElement(homepage.getLogoutBtn());
         homepage.waitForVisibility(homepage.getUserMenu());
         homepage.waitForClickable(homepage.getUserMenu());
         homepage.placeMouseOn(homepage.getUserMenu());

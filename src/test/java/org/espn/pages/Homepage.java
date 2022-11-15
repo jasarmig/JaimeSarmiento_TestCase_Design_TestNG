@@ -24,7 +24,7 @@ public class Homepage extends WebOps {
     private WebElement iFrame;
 
     @FindBy(css = ".input-InputLoginValue")
-    private WebElement userHandle;
+    private WebElement username;
 
     @FindBy(css = ".input-InputPassword")
     private WebElement userPass;
@@ -42,23 +42,19 @@ public class Homepage extends WebOps {
     private WebElement tileContent;
 
     @FindBy(css = "button.lightbox__closebtn")
-    private WebElement closePopup;
+    private WebElement closePopupBtn;
 
     @FindBy(css = ".user [onclick*=\"logout\"]")
-    private WebElement logout;
+    private WebElement logoutBtn;
 
     @FindBy(css = ".user [tref*=\"modify\"]")
-    private WebElement profile;
+    private WebElement profileBtn;
 
     @FindBy(id = "AccountDeleteLink")
     private WebElement deleteAccountLink;
 
     @FindBy(id = "TextError")
-    private WebElement byError;
-
-    public WebElement getLogo() {
-        return logo;
-    }
+    private WebElement byErrorLink;
 
     @FindBy(id = "logo")
     private WebElement logo;
@@ -71,6 +67,10 @@ public class Homepage extends WebOps {
 
     @FindBy(css = "#Title > span")
     private WebElement iFrameTitle;
+
+    public WebElement getLogo() {
+        return logo;
+    }
 
     public WebElement getiFrameTitle() {
         return iFrameTitle;
@@ -104,8 +104,8 @@ public class Homepage extends WebOps {
         return iFrame;
     }
 
-    public WebElement getUserHandle() {
-        return userHandle;
+    public WebElement getUsername() {
+        return username;
     }
 
     public WebElement getUserPass() {
@@ -124,23 +124,23 @@ public class Homepage extends WebOps {
         return secondElement;
     }
 
-    public WebElement getClosePopup() {
-        return closePopup;
+    public WebElement getClosePopupBtn() {
+        return closePopupBtn;
     }
 
-    public WebElement getLogout() {
-        return logout;
+    public WebElement getLogoutBtn() {
+        return logoutBtn;
     }
 
-    public WebElement getProfile() {
-        return profile;
+    public WebElement getProfileBtn() {
+        return profileBtn;
     }
 
     public WebElement getDeleteAccountLink() {
         return deleteAccountLink;
     }
 
-    public WebElement getByError() {
-        return byError;
+    public WebElement getByErrorLink() {
+        return byErrorLink;
     }
 }
