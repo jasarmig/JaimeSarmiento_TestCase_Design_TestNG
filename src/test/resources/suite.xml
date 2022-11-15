@@ -5,12 +5,26 @@
         <listener class-name="org.espn.utils.Listener"/>
     </listeners>
 
-    <parameter name="url" value="https://www.espnqa.com/?src=com&_adblock=true"/>
+    <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>
 
     <test name="Login Test">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="org.espn.tests.Login"></class>
+        </classes>
+    </test>
+
+    <test name="Logout Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="org.espn.tests.Logout"></class>
+        </classes>
+    </test>
+
+    <test name="Deactivation Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="org.espn.tests.Deactivate"></class>
         </classes>
     </test>
 
