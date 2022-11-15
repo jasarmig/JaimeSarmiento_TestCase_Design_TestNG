@@ -11,60 +11,79 @@ public class Homepage extends WebOps {
         super(driver);
     }
 
+    //home
     @FindBy(className = "user")
     private WebElement userMenu;
 
+    //home
     @FindBy(css = ".col-one button[tref*=\"login\"]")
     private WebElement loginButton;
 
+    //home
     @FindBy(className = "watch")
     private WebElement watchButton;
 
+    //home
     @FindBy(id = "oneid-iframe")
     private WebElement iFrame;
 
+    //iframe
     @FindBy(css = ".input-InputLoginValue")
     private WebElement username;
 
+    //iframe
     @FindBy(css = ".input-InputPassword")
     private WebElement userPass;
 
+    //iframe
     @FindBy(id = "BtnSubmit")
     private WebElement submit;
 
+    //iframe
     @FindBy(id = "BtnCancel")
     private WebElement cancel;
 
+    //watch
     @FindBy(css = ".BucketsContainer>div:first-child .Carousel__Inner>li:nth-child(2)")
     private WebElement secondElement;
 
+    //watch
     @FindBy(css = ".BucketsContainer>div:first-child .Carousel__Inner>li:nth-child(2)>a>div:nth-child(2)")
     private WebElement tileContent;
 
+    //watch
     @FindBy(css = "button.lightbox__closebtn")
     private WebElement closePopupBtn;
 
+    //home
     @FindBy(css = ".user [onclick*=\"logout\"]")
     private WebElement logoutBtn;
 
+    //home
     @FindBy(css = ".user [tref*=\"modify\"]")
     private WebElement profileBtn;
 
+    //iframe
     @FindBy(id = "AccountDeleteLink")
     private WebElement deleteAccountLink;
 
+    //iframe
     @FindBy(id = "TextError")
     private WebElement byErrorLink;
 
+    //iframe
     @FindBy(id = "logo")
     private WebElement logo;
 
+    //home
     @FindBy(css = ".display-user")
     private WebElement userName;
 
+    //watch
     @FindBy(className = "lightbox__contentBox")
     private WebElement watchLightbox;
 
+    //iframe
     @FindBy(css = "#Title > span")
     private WebElement iFrameTitle;
 

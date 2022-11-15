@@ -19,13 +19,10 @@ public class Logout extends BaseTests {
     }
     @Test
     public void logoutTest() {
-        homepage.waitForVisibility(homepage.getUserMenu());
-        homepage.waitForClickable(homepage.getUserMenu());
         homepage.placeMouseOn(homepage.getUserMenu());
         homepage.clickElement(homepage.getLogoutBtn());
-        homepage.waitForVisibility(homepage.getUserMenu());
-        homepage.waitForClickable(homepage.getUserMenu());
+        driver.getDriver().navigate().refresh();
         homepage.placeMouseOn(homepage.getUserMenu());
-        checkThat("Username is not present in menu", homepage.getUserName().getText(), is(""));
+        checkThat("Username is not present in menu", homepage.getUserName().getText(), is("Welcome!"));
     }
 }

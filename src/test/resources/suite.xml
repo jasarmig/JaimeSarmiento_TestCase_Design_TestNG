@@ -21,11 +21,11 @@
         </classes>
     </test>
 
-    <test name="Deactivation Test">
+    <!--<test name="Deactivation Test">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="org.espn.tests.Deactivate"></class>
         </classes>
-    </test>
+    </test>-->
 
 </suite>

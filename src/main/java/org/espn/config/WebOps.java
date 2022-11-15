@@ -42,16 +42,13 @@ public class WebOps {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForVisibility(List<WebElement> elements){
-        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
-    }
-
     public void waitForClickable(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void placeMouseOn(WebElement element){
         waitForVisibility(element);
+        waitForClickable(element);
         action.moveToElement(element).perform();
     }
 }

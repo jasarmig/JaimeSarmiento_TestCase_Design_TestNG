@@ -17,8 +17,6 @@ public class Deactivate extends BaseTests {
         homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
         homepage.clickElement(homepage.getSubmit());
         Reporter.info("User is logged in");
-        homepage.waitForVisibility(homepage.getUserMenu());
-        homepage.waitForClickable(homepage.getUserMenu());
         homepage.placeMouseOn(homepage.getUserMenu());
     }
 

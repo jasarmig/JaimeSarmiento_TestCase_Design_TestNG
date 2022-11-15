@@ -2,6 +2,7 @@ package org.espn.tests;
 
 
 import org.espn.reporting.Reporter;
+import org.slf4j.Logger;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,6 @@ public class Login extends BaseTests {
     public void loginTest(String url){
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        //TODO modularizar esta comprobacion
         checkThat("ESPN logo is displayed", homepage.getLogo().isDisplayed(), is(true));
         checkThat("User email input is displayed", homepage.getUsername().isDisplayed(), is(true));
         checkThat("Password input is displayed", homepage.getUserPass().isDisplayed(), is(true));
@@ -29,24 +29,20 @@ public class Login extends BaseTests {
         Reporter.info("Carousel is present");
         homepage.clickElement(homepage.getSecondElement());
         homepage.waitForVisibility(homepage.getWatchLightbox());
-        homepage.waitForClickable(homepage.getWatchLightbox());
+        homepage.waitForClickable(homepage.getClosePopupBtn());
         checkThat("Check X button is present",homepage.getClosePopupBtn().isDisplayed(),is(true));
         homepage.clickElement(homepage.getClosePopupBtn());
         Reporter.info("Lightbox closed");
         Reporter.info(format("Navigating to %s", url));
-        driver.getDriver().get(url);
-        homepage.waitForVisibility(homepage.getUserMenu());
-        homepage.waitForClickable(homepage.getUserMenu());
+        driver.getDriver().navigate().back();
         homepage.placeMouseOn(homepage.getUserMenu());
         homepage.waitForVisibility(homepage.getUserName());
         homepage.waitForClickable(homepage.getLogoutBtn());
         checkThat("Username is present in menu", homepage.getUserName().getText(), is("WelcomeJaime!"));
         homepage.clickElement(homepage.getLogoutBtn());
-        homepage.waitForVisibility(homepage.getUserMenu());
-        homepage.waitForClickable(homepage.getUserMenu());
+        Reporter.info("User logged out");
+        driver.getDriver().navigate().refresh();
         homepage.placeMouseOn(homepage.getUserMenu());
-        homepage.waitForVisibility(homepage.getUserMenu());
-        homepage.waitForClickable(homepage.getUserMenu());
         checkThat("Username is not present in menu", homepage.getUserName().getText(), is("Welcome!"));
     }
 
