@@ -6,6 +6,7 @@ import org.hamcrest.Matcher;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import static java.lang.String.format;
 import static org.hamcrest.Matchers.is;
 
 public class Login extends BaseTests {
@@ -22,13 +23,18 @@ public class Login extends BaseTests {
         homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+7@globant.com");
         homepage.typeOfInput(homepage.getUserPass(), "Ailatan9843" );
         homepage.clickElement(homepage.getSubmit());
+        Reporter.info("User is logged in");
+        Reporter.info("Navigating to Watch page");
         homepage.clickElement(homepage.getWatchButton());
         checkThat("At least one carousel is present", homepage.getTileContent().isDisplayed(), is(true));
+        Reporter.info("Carousel is present");
         homepage.clickElement(homepage.getSecondElement());
         homepage.waitForVisibility(homepage.getWatchLightbox());
         homepage.waitForClickable(homepage.getWatchLightbox());
         checkThat("Check X button is present",homepage.getClosePopup().isDisplayed(),is(true));
         homepage.clickElement(homepage.getClosePopup());
+        Reporter.info("Lightbox closed");
+        Reporter.info(format("Navigating to %s", url));
         driver.getDriver().get(url);
         homepage.waitForVisibility(homepage.getUserMenu());
         homepage.waitForClickable(homepage.getUserMenu());

@@ -8,20 +8,18 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
+import static java.lang.String.format;
+
 public class Deactivate extends BaseTests {
 
     @BeforeMethod
     public void login(){
-        Reporter.info("Click on Login Button");
         homepage.clickElement(homepage.getLoginButton());
-        Reporter.info("Switching to iFrame");
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        Reporter.info("User email input");
         homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+6@globant.com");
-        Reporter.info("User password input");
         homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
-        Reporter.info("Loging in");
         homepage.clickElement(homepage.getSubmit());
+        Reporter.info("User is logged in");
         homepage.waitForVisibility(homepage.getUserMenu());
         homepage.waitForClickable(homepage.getUserMenu());
         homepage.placeMouseOn(homepage.getUserMenu());
@@ -31,7 +29,6 @@ public class Deactivate extends BaseTests {
     public void deactivate(){
         homepage.waitForClickable(homepage.getProfile());
         homepage.clickElement(homepage.getProfile());
-        Reporter.info("Switching to iFrame");
         driver.getDriver().switchTo().frame(homepage.getiFrame());
         homepage.clickElement(homepage.getDeleteAccountLink());
         homepage.waitForClickable(homepage.getCancel());

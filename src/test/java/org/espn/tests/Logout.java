@@ -4,20 +4,18 @@ import org.espn.reporting.Reporter;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.Matchers.is;
+
 public class Logout extends BaseTests {
 
     @BeforeMethod
     public void login(){
-        Reporter.info("Click on Login Button");
         homepage.clickElement(homepage.getLoginButton());
-        Reporter.info("Switching to iFrame");
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        Reporter.info("User email input");
-        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+2@globant.com");
-        Reporter.info("User password input");
-        homepage.typeOfInput(homepage.getUserPass(), "pop1280c");
-        Reporter.info("Loging in");
+        homepage.typeOfInput(homepage.getUserHandle(), "je.sarmiento+7@globant.com");
+        homepage.typeOfInput(homepage.getUserPass(), "Ailatan9843");
         homepage.clickElement(homepage.getSubmit());
+        Reporter.info("User is logged in");
     }
     @Test
     public void logoutTest() {
@@ -28,5 +26,6 @@ public class Logout extends BaseTests {
         homepage.waitForVisibility(homepage.getUserMenu());
         homepage.waitForClickable(homepage.getUserMenu());
         homepage.placeMouseOn(homepage.getUserMenu());
+        checkThat("Username is not present in menu", homepage.getUserName().getText(), is(""));
     }
 }
