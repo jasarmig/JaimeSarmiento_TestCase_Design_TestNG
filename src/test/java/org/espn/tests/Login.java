@@ -1,8 +1,8 @@
 package org.espn.tests;
 
 
+import org.espn.pages.Watch;
 import org.espn.reporting.Reporter;
-import org.slf4j.Logger;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -11,27 +11,30 @@ import static org.hamcrest.Matchers.is;
 
 public class Login extends BaseTests {
 
+    protected Watch watch;
+
     @Parameters({"url","user","pass"})
     @Test
     public void loginTest(String url,String user,String pass){
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        checkThat("ESPN logo is displayed", homepage.getLogo().isDisplayed(), is(true));
-        checkThat("User email input is displayed", homepage.getUsername().isDisplayed(), is(true));
-        checkThat("Password input is displayed", homepage.getUserPass().isDisplayed(), is(true));
-        homepage.typeOfInput(homepage.getUsername(), user);
-        homepage.typeOfInput(homepage.getUserPass(), pass );
-        homepage.clickElement(homepage.getSubmit());
+        checkThat("ESPN logo is displayed", frame.getLogo().isDisplayed(), is(true));
+        checkThat("User email input is displayed", frame.getUsername().isDisplayed(), is(true));
+        checkThat("Password input is displayed", frame.getUserPass().isDisplayed(), is(true));
+        homepage.typeOfInput(frame.getUsername(), user);
+        homepage.typeOfInput(frame.getUserPass(), pass );
+        homepage.clickElement(frame.getSubmit());
         Reporter.info("User is logged in");
         Reporter.info("Navigating to Watch page");
         homepage.clickElement(homepage.getWatchButton());
-        checkThat("At least one carousel is present", homepage.getTileContent().isDisplayed(), is(true));
+        watch = new Watch(driver.getDriver());
+        checkThat("At least one carousel is present", watch.getTileContent().isDisplayed(), is(true));
         Reporter.info("Carousel is present");
-        homepage.clickElement(homepage.getSecondElement());
-        homepage.waitForVisibility(homepage.getWatchLightbox());
-        homepage.waitForClickable(homepage.getClosePopupBtn());
-        checkThat("Check X button is present",homepage.getClosePopupBtn().isDisplayed(),is(true));
-        homepage.clickElement(homepage.getClosePopupBtn());
+        homepage.clickElement(watch.getSecondElement());
+        homepage.waitForVisibility(watch.getWatchLightbox());
+        homepage.waitForClickable(watch.getClosePopupBtn());
+        checkThat("Check X button is present",watch.getClosePopupBtn().isDisplayed(),is(true));
+        homepage.clickElement(watch.getClosePopupBtn());
         Reporter.info("Lightbox closed");
         Reporter.info(format("Navigating to %s", url));
         driver.getDriver().navigate().back();

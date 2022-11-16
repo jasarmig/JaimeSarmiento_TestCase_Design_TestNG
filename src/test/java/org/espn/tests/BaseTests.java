@@ -2,6 +2,7 @@ package org.espn.tests;
 
 import org.espn.config.Driver;
 import org.espn.pages.Homepage;
+import org.espn.pages.IFrame;
 import org.espn.reporting.Reporter;
 import org.hamcrest.Matcher;
 import org.hamcrest.MatcherAssert;
@@ -15,6 +16,7 @@ public class BaseTests {
 
     protected Driver driver;
     protected Homepage homepage;
+    protected IFrame frame;
 
 
     @Parameters({"browser","url"})
@@ -29,6 +31,7 @@ public class BaseTests {
         homepage = new Homepage(driver.getDriver());
         driver.getDriver().switchTo().frame(homepage.getBannerFrame());
         homepage.clickElement(homepage.getBannerCloseBtn());
+        frame = new IFrame(driver.getDriver());
     }
 
     @AfterTest
