@@ -1,5 +1,6 @@
 package org.espn.tests;
 
+import org.espn.pages.IFrame;
 import org.espn.pages.Watch;
 import org.espn.reporting.Reporter;
 import org.testng.annotations.Parameters;
@@ -72,9 +73,9 @@ public class UserTests extends BaseTests{
         frame.waitForClickable(frame.getByErrorLink());
         checkThat("Account has been deleted", frame.getiFrameTitle().getText(), is("Your account has been deleted."));
         frame.clickElement(frame.getSubmit());
-        driver.getDriver().switchTo().defaultContent();
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
+        frame.waitForClickable(frame.getHelpLink());
         frame.typeOfInput(frame.getUsername(), user);
         frame.typeOfInput(frame.getUserPass(), pass);
         frame.clickElement(frame.getSubmit());
