@@ -9,6 +9,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static java.lang.String.format;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 
 public class WatchTest extends BaseTests {
@@ -34,8 +35,10 @@ public class WatchTest extends BaseTests {
         Reporter.info("Navigating to Watch page");
         homepage.clickElement(homepage.getWatchButton());
         watch = new Watch(driver.getDriver());
-        checkThat("At least one carousel is present", watch.getTileContent().isDisplayed(), is(true));
+        checkThat("At least one carousel is present", watch.getCarouselList().size(), greaterThan(0));
         Reporter.info("Carousel is present");
+        checkThat("All carousel items have title", watch.getFirstCarouselTiles().size(),is(watch.getTileTitles().size()));
+        checkThat("All carousel items have meta", watch.getFirstCarouselTiles().size(), is(watch.getTileMetas().size()));
         watch.clickElement(watch.getSecondElement());
         watch.waitForVisibility(watch.getWatchLightbox());
         watch.waitForClickable(watch.getClosePopupBtn());
