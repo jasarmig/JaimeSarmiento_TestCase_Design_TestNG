@@ -69,8 +69,8 @@ public class UserTests extends BaseTests{
         frame.clickElement(frame.getDeleteAccountLink());
         frame.waitForClickable(frame.getCancel());
         frame.clickElement(frame.getSubmit());
-        checkThat("Account has been deleted", frame.getiFrameTitle().getText(), is("Your account has been deleted."));
         frame.waitForClickable(frame.getByErrorLink());
+        checkThat("Account has been deleted", frame.getiFrameTitle().getText(), is("Your account has been deleted."));
         frame.clickElement(frame.getSubmit());
         driver.getDriver().switchTo().defaultContent();
         homepage.clickElement(homepage.getLoginButton());
@@ -78,6 +78,7 @@ public class UserTests extends BaseTests{
         frame.typeOfInput(frame.getUsername(), user);
         frame.typeOfInput(frame.getUserPass(), pass);
         frame.clickElement(frame.getSubmit());
+        frame.waitForVisibility(frame.getiFrameTitle());
         checkThat("Account has been deactivated", frame.getiFrameTitle().getText(), is("Account Deactivated"));
     }
 }
