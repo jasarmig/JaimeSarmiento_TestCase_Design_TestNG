@@ -16,12 +16,12 @@
         </classes>
     </test>
 
-   <test name="Logout Test">
+   <!--<test name="Logout Test">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="org.espn.tests.LogoutTest"/>
         </classes>
-    </test>
+    </test>-->
 
     <!--<test name="Deactivation Test">
         <parameter name="browser" value="chrome"/>

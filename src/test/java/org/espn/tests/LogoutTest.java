@@ -14,9 +14,9 @@ public class LogoutTest extends BaseTests {
     public void login(String user, String pass){
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        homepage.typeOfInput(frame.getUsername(), user);
-        homepage.typeOfInput(frame.getUserPass(), pass);
-        homepage.clickElement(frame.getSubmit());
+        frame.typeOfInput(frame.getUsername(), user);
+        frame.typeOfInput(frame.getUserPass(), pass);
+        frame.clickElement(frame.getSubmit());
         Reporter.info("User is logged in");
     }
     @Test
