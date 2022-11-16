@@ -3,12 +3,11 @@ package org.espn.tests;
 import org.espn.config.Driver;
 import org.espn.pages.Homepage;
 import org.espn.pages.IFrame;
+import org.espn.pages.Watch;
 import org.espn.reporting.Reporter;
 import org.hamcrest.Matcher;
 import org.hamcrest.MatcherAssert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import static java.lang.String.format;
 
@@ -17,6 +16,7 @@ public class BaseTests {
     protected Driver driver;
     protected Homepage homepage;
     protected IFrame frame;
+    protected Watch watch;
 
 
     @Parameters({"browser","url"})
@@ -38,6 +38,7 @@ public class BaseTests {
     public void endTest(){
         driver.getDriver().quit();
     }
+
 
     protected <T> void checkThat(String description, T actualValue, Matcher<? super T> expectedValue) {
         Reporter.info(format("Checking that " + description.toLowerCase() + " [Expected: %s]", expectedValue));

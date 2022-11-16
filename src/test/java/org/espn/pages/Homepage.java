@@ -58,13 +58,9 @@ public class Homepage extends WebOps {
         return loginButton;
     }
 
-    public WebElement getWatchButton() {
-        return watchButton;
-    }
+    public WebElement getWatchButton() { return watchButton; }
 
-    public WebElement getiFrame() {
-        return iFrame;
-    }
+    public WebElement getiFrame() { return iFrame; }
 
     public WebElement getLogoutBtn() {
         return logoutBtn;

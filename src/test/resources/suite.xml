@@ -9,22 +9,25 @@
     <parameter name="user" value="je.sarmiento+8@globant.com"/>
     <parameter name="pass" value="N0seasap0"/>
 
-    <test name="Login Test">
+    <test name="Watch Test">
         <parameter name="browser" value="chrome"/>
+        <parameter name="testName" value="Watch Test"/>
         <classes>
-            <class name="org.espn.tests.LoginTest"/>
+            <class name="org.espn.tests.WatchTest"/>
         </classes>
     </test>
 
-   <!--<test name="Logout Test">
+   <test name="Login/Logout Test">
         <parameter name="browser" value="chrome"/>
+        <parameter name="testName" value="Login/Logout Test"/>
         <classes>
-            <class name="org.espn.tests.LogoutTest"/>
+            <class name="org.espn.tests.LoginLogoutTest"/>
         </classes>
-    </test>-->
+    </test>
 
-    <!--<test name="Deactivation Test">
+    <!--<test name="Account Deactivation Test">
         <parameter name="browser" value="chrome"/>
+        <parameter name="testName" value="Account Deactivation Test"/>
         <classes>
             <class name="org.espn.tests.DeactivateTest"></class>
         </classes>

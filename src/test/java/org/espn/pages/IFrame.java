@@ -18,6 +18,9 @@ public class IFrame extends Homepage {
     @FindBy(id = "BtnCancel")
     private WebElement cancel;
 
+    @FindBy(id = "BtnCreateAccount")
+    private WebElement create;
+
     @FindBy(id = "AccountDeleteLink")
     private WebElement deleteAccountLink;
 
@@ -64,5 +67,9 @@ public class IFrame extends Homepage {
 
     public WebElement getByErrorLink() {
         return byErrorLink;
+    }
+
+    public WebElement getCreate() {
+        return create;
     }
 }
