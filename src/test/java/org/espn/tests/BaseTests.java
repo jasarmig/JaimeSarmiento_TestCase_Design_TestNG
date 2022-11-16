@@ -20,7 +20,7 @@ public class BaseTests {
 
 
     @Parameters({"browser","url"})
-    @BeforeTest
+    @BeforeTest(groups = {"logout","watch","deactivate"})
     public void testSetup(String browser, String url){
         driver = new Driver(browser);
         Reporter.info("Deleting cookies");
@@ -34,7 +34,7 @@ public class BaseTests {
         frame = new IFrame(driver.getDriver());
     }
 
-    @AfterTest
+    @AfterTest(groups = {"logout","watch","deactivate"})
     public void endTest(){
         driver.getDriver().quit();
     }

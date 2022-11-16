@@ -7,30 +7,41 @@
 
     <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>
     <parameter name="user" value="je.sarmiento+8@globant.com"/>
-    <parameter name="pass" value="N0seasap0"/>
+    <parameter name="pass" value="pop1280c"/>
+    <parameter name="browser" value="chrome"/>
 
     <test name="Watch Test">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="testName" value="Watch Test"/>
+        <groups>
+            <run>
+                <include name="watch"/>
+            </run>
+        </groups>
+
         <classes>
-            <class name="org.espn.tests.WatchTest"/>
+            <class name="org.espn.tests.UserTests"/>
         </classes>
     </test>
 
-   <!--<test name="Login/Logout Test">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="testName" value="Login/Logout Test"/>
+    <test name="Logout Test">
+        <groups>
+            <run>
+                <include name="logout"/>
+            </run>
+        </groups>
         <classes>
-            <class name="org.espn.tests.LoginLogoutTest"/>
+            <class name="org.espn.tests.UserTests"/>
         </classes>
-    </test>-->
+    </test>
 
-    <!--<test name="Account Deactivation Test">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="testName" value="Account Deactivation Test"/>
+    <test name="Deactivate Test">
+        <groups>
+            <run>
+                <include name="deactivate"/>
+            </run>
+        </groups>
         <classes>
-            <class name="org.espn.tests.DeactivateTest"></class>
+            <class name="org.espn.tests.UserTests"/>
         </classes>
-    </test>-->
+    </test>
 
 </suite>
