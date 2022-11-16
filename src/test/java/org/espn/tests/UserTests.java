@@ -1,6 +1,5 @@
 package org.espn.tests;
 
-import org.espn.pages.IFrame;
 import org.espn.pages.Watch;
 import org.espn.reporting.Reporter;
 import org.testng.annotations.Parameters;
@@ -75,10 +74,12 @@ public class UserTests extends BaseTests{
         frame.clickElement(frame.getSubmit());
         homepage.clickElement(homepage.getLoginButton());
         driver.getDriver().switchTo().frame(homepage.getiFrame());
-        frame.waitForClickable(frame.getHelpLink());
+        frame.waitForVisibility(frame.getUsername());
         frame.typeOfInput(frame.getUsername(), user);
+        frame.waitForVisibility(frame.getUserPass());
         frame.typeOfInput(frame.getUserPass(), pass);
         frame.clickElement(frame.getSubmit());
+        driver.getDriver().switchTo().frame(homepage.getiFrame());
         frame.waitForVisibility(frame.getiFrameTitle());
         checkThat("Account has been deactivated", frame.getiFrameTitle().getText(), is("Account Deactivated"));
     }

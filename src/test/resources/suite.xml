@@ -6,8 +6,8 @@
     </listeners>
 
     <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>
-    <parameter name="user" value="je.sarmiento+18@globant.com"/>
-    <parameter name="pass" value="pop1280c"/>
+    <parameter name="user" value="je.sarmiento+espn@globant.com"/>
+    <parameter name="pass" value="N0seasap0"/>
     <parameter name="browser" value="chrome"/>
 
     <test name="Watch Test">
@@ -31,7 +31,7 @@
         <classes>
             <class name="org.espn.tests.UserTests"/>
         </classes>
-    </test>
+    </test>-->
 
     <test name="Deactivate Test">
         <groups>

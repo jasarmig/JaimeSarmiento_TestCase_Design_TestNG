@@ -33,13 +33,6 @@ public class IFrame extends Homepage {
     @FindBy(css = "#Title > span")
     private WebElement iFrameTitle;
 
-    @FindBy(className = "need-help-signing-in")
-    private WebElement helpLink;
-
-    public WebElement getHelpLink() {
-        return helpLink;
-    }
-
     public IFrame(WebDriver driver) {
         super(driver);
     }
