@@ -12,21 +12,14 @@ import static org.openqa.selenium.support.PageFactory.initElements;
 
 public class WebOps {
 
-    private final WebDriver driver;
     private final WebDriverWait wait;
     private final Actions action;
 
     public WebOps(WebDriver driver){
-        this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5L));
         this.action = new Actions(driver);
         initElements(driver, this);
     }
-
-    protected WebDriver getDriver(){
-        return driver;
-    }
-    protected Actions getAction() { return action; }
 
     public void clickElement(WebElement element){
         waitForClickable(element);

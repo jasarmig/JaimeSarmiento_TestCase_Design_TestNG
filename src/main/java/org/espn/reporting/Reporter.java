@@ -18,8 +18,4 @@ public class Reporter {
     public static void error(String text){
         getLogger().error(text);
     }
-
-    public static void warning(String text){
-        getLogger().warn(text);
-    }
 }

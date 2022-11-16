@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static org.hamcrest.Matchers.is;
 
-public class Logout extends BaseTests {
+public class LogoutTest extends BaseTests {
 
     @BeforeMethod
     @Parameters({"user","pass"})

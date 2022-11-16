@@ -12,21 +12,21 @@
     <test name="Login Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="org.espn.tests.Login"></class>
+            <class name="org.espn.tests.LoginTest"/>
         </classes>
     </test>
 
    <test name="Logout Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="org.espn.tests.Logout"></class>
+            <class name="org.espn.tests.LogoutTest"/>
         </classes>
     </test>
 
     <!--<test name="Deactivation Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="org.espn.tests.Deactivate"></class>
+            <class name="org.espn.tests.DeactivateTest"></class>
         </classes>
     </test>-->
 

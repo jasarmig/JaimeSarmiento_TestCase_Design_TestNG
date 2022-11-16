@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import static java.lang.String.format;
 import static org.hamcrest.Matchers.is;
 
-public class Login extends BaseTests {
+public class LoginTest extends BaseTests {
 
     protected Watch watch;
 
@@ -48,6 +48,4 @@ public class Login extends BaseTests {
         homepage.placeMouseOn(homepage.getUserMenu());
         checkThat("Username is not present in menu", homepage.getUserName().getText(), is("Welcome!"));
     }
-
-
 }

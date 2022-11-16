@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import static org.hamcrest.Matchers.is;
 
-public class Deactivate extends BaseTests {
+public class DeactivateTest extends BaseTests {
 
     @BeforeMethod
     @Parameters({"user","pass"})
