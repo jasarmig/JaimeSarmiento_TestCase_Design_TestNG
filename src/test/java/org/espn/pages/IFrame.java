@@ -24,14 +24,17 @@ public class IFrame extends Homepage {
     @FindBy(id = "AccountDeleteLink")
     private WebElement deleteAccountLink;
 
-    @FindBy(id = "TextError")
-    private WebElement byErrorLink;
+    @FindBy(id = "TextSuccess")
+    private WebElement successText;
 
     @FindBy(id = "logo")
     private WebElement logo;
 
     @FindBy(css = "#Title > span")
     private WebElement iFrameTitle;
+
+    @FindBy(id = "TextBlock")
+    private WebElement textBlock;
 
     public IFrame(WebDriver driver) {
         super(driver);
@@ -65,11 +68,15 @@ public class IFrame extends Homepage {
         return deleteAccountLink;
     }
 
-    public WebElement getByErrorLink() {
-        return byErrorLink;
-    }
-
     public WebElement getCreate() {
         return create;
+    }
+
+    public WebElement getSuccessText() {
+        return successText;
+    }
+
+    public WebElement getTextBlock() {
+        return textBlock;
     }
 }

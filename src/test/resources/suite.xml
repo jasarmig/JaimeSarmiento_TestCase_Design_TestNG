@@ -31,7 +31,7 @@
         <classes>
             <class name="org.espn.tests.UserTests"/>
         </classes>
-    </test>-->
+    </test>
 
     <test name="Deactivate Test">
         <groups>
