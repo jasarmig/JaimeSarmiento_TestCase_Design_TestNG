@@ -22,26 +22,4 @@
         </classes>
     </test>
 
-   <!-- <test name="Logout Test">
-        <groups>
-            <run>
-                <include name="logout"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="org.espn.tests.UserTests"/>
-        </classes>
-    </test>
-
-    <test name="Deactivate Test">
-        <groups>
-            <run>
-                <include name="deactivate"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="org.espn.tests.UserTests"/>
-        </classes>
-    </test>-->
-
 </suite>
