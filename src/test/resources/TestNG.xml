@@ -22,7 +22,7 @@
         </classes>
     </test>
 
-    <test name="Logout Test">
+   <!-- <test name="Logout Test">
         <groups>
             <run>
                 <include name="logout"/>
@@ -42,6 +42,6 @@
         <classes>
             <class name="org.espn.tests.UserTests"/>
         </classes>
-    </test>
+    </test>-->
 
 </suite>

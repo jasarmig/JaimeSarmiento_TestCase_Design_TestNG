@@ -42,8 +42,7 @@ public class UserTests extends BaseTests{
     @Test(groups = {"watch"}, priority = 1)
     public void watchTest(String url){
         Reporter.info("Navigating to Watch page");
-        homepage.clickElement(homepage.getWatchButton());
-        watch = new Watch(driver.getDriver());
+        watch = homepage.goToWatch(driver);
         checkThat("At least one carousel is present", watch.getCarouselList().size(), greaterThan(0));
         Reporter.info(watch.getCarouselList().size() + " carousels are present.");
         Reporter.info("The first carousel has " + watch.getFirstCarouselTiles().size() + " tiles");

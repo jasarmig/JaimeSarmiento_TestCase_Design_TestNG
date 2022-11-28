@@ -1,5 +1,6 @@
 package org.espn.pages;
 
+import org.espn.config.Driver;
 import org.espn.config.WebOps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -70,4 +71,8 @@ public class Homepage extends WebOps {
         return profileBtn;
     }
 
+    public Watch goToWatch(Driver driver) {
+        clickElement(getWatchButton());
+        return new Watch(driver.getDriver());
+    }
 }

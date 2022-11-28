@@ -1,5 +1,6 @@
 package org.espn.pages;
 
+import org.espn.config.Driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -78,5 +79,10 @@ public class IFrame extends Homepage {
 
     public WebElement getTextBlock() {
         return textBlock;
+    }
+
+    public Watch goToLogin(Driver driver) {
+        clickElement(getWatchButton());
+        return new Watch(driver.getDriver());
     }
 }
