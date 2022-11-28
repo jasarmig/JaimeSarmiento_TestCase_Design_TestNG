@@ -1,0 +1,47 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="ESPN Test Suite">
+    <listeners>
+        <listener class-name="org.espn.utils.Listener"/>
+    </listeners>
+
+    <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>
+    <parameter name="user" value="je.sarmiento+espn@globant.com"/>
+    <parameter name="pass" value="N0seasap0"/>
+    <parameter name="browser" value="chrome"/>
+
+    <test name="Watch Test">
+        <groups>
+            <run>
+                <include name="watch"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="org.espn.tests.UserTests"/>
+        </classes>
+    </test>
+
+   <!-- <test name="Logout Test">
+        <groups>
+            <run>
+                <include name="logout"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="org.espn.tests.UserTests"/>
+        </classes>
+    </test>
+
+    <test name="Deactivate Test">
+        <groups>
+            <run>
+                <include name="deactivate"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="org.espn.tests.UserTests"/>
+        </classes>
+    </test>-->
+
+</suite>
