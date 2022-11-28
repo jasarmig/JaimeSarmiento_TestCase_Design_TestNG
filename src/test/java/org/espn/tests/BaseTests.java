@@ -2,7 +2,6 @@ package org.espn.tests;
 
 import org.espn.config.Driver;
 import org.espn.pages.Homepage;
-import org.espn.pages.IFrame;
 import org.espn.pages.Watch;
 import org.espn.reporting.Reporter;
 import org.hamcrest.Matcher;
@@ -15,7 +14,6 @@ public class BaseTests {
 
     protected Driver driver;
     protected Homepage homepage;
-    protected IFrame frame;
     protected Watch watch;
 
 
