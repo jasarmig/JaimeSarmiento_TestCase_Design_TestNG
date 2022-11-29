@@ -15,7 +15,7 @@ public class Homepage extends WebOps {
     @FindBy(className = "user")
     private WebElement userMenu;
 
-    @FindBy(css = ".col-one button[tref*=\"login\"]")
+    @FindBy(css = "#sideLogin-left-rail .button-alt")
     private WebElement loginButton;
 
     @FindBy(className = "watch")
@@ -24,62 +24,35 @@ public class Homepage extends WebOps {
     @FindBy(id = "oneid-iframe")
     private WebElement iFrame;
 
-    @FindBy(css = ".user [onclick*=\"logout\"]")
+    @FindBy(linkText = "Log Out")
     private WebElement logoutBtn;
 
-    @FindBy(css = ".user [tref*=\"modify\"]")
-    private WebElement profileBtn;
-
-    @FindBy(css = ".display-user")
+    @FindBy(className = "display-user")
     private WebElement userName;
 
-    @FindBy(css = ".promo-banner-container > iframe")
-    private WebElement bannerFrame;
+    @FindBy(id = "InputFirstName")
+    private WebElement firstName;
 
-    @FindBy(css = "#fittPageContainer .PromoBanner__CloseBtn")
-    private WebElement bannerCloseBtn;
+    @FindBy(id = "InputLastName")
+    private WebElement lastName;
 
-    @FindBy(css = ".input-InputLoginValue")
-    private WebElement username;
+    @FindBy(id = "InputEmail")
+    private WebElement emailAddress;
 
-    @FindBy(css = ".input-InputPassword")
+    @FindBy(id = "password-new")
     private WebElement userPass;
 
     @FindBy(id = "BtnSubmit")
     private WebElement submit;
 
-    @FindBy(id = "BtnCancel")
-    private WebElement cancel;
+    @FindBy(id = "close")
+    private WebElement closeBtn;
 
     @FindBy(id = "BtnCreateAccount")
-    private WebElement create;
-
-    @FindBy(id = "AccountDeleteLink")
-    private WebElement deleteAccountLink;
-
-    @FindBy(id = "TextSuccess")
-    private WebElement successText;
+    private WebElement createBtn;
 
     @FindBy(id = "logo")
     private WebElement logo;
-
-    @FindBy(css = "#Title > span")
-    private WebElement iFrameTitle;
-
-    @FindBy(id = "TextBlock")
-    private WebElement textBlock;
-
-    public WebElement getBannerFrame() {
-        return bannerFrame;
-    }
-
-    public WebElement getBannerCloseBtn() {
-        return bannerCloseBtn;
-    }
-
-    public WebElement getUserName() {
-        return userName;
-    }
 
     public WebElement getUserMenu() {
         return userMenu;
@@ -97,10 +70,6 @@ public class Homepage extends WebOps {
         return logoutBtn;
     }
 
-    public WebElement getProfileBtn() {
-        return profileBtn;
-    }
-
     public Watch goToWatch(Driver driver) {
         clickElement(getWatchButton());
         return new Watch(driver.getDriver());
@@ -110,12 +79,8 @@ public class Homepage extends WebOps {
         return logo;
     }
 
-    public WebElement getiFrameTitle() {
-        return iFrameTitle;
-    }
-
-    public WebElement getUsername() {
-        return username;
+    public WebElement getUserName() {
+        return userName;
     }
 
     public WebElement getUserPass() {
@@ -126,24 +91,82 @@ public class Homepage extends WebOps {
         return submit;
     }
 
-    public WebElement getCancel() {
-        return cancel;
+    public WebElement getCreateBtn() {
+        return createBtn;
     }
 
-    public WebElement getDeleteAccountLink() {
-        return deleteAccountLink;
+    public WebElement getFirstName() {
+        return firstName;
     }
 
-    public WebElement getCreate() {
-        return create;
+    public WebElement getLastName() {
+        return lastName;
     }
 
-    public WebElement getSuccessText() {
-        return successText;
+    public WebElement getEmailAddress() {
+        return emailAddress;
     }
 
-    public WebElement getTextBlock() {
-        return textBlock;
+    public WebElement getCloseBtn() {
+        return closeBtn;
     }
 
+    public boolean logoIsDisplayed() {
+        return getLogo().isDisplayed();
+    }
+
+    public boolean loginBtnIsDisplayed() {
+        return getSubmit().isDisplayed();
+    }
+
+    public boolean signUpBtnIsDisplayed() {
+        return getCreateBtn().isDisplayed();
+    }
+
+    public boolean firstNameFieldDisplayed() {
+        return getFirstName().isDisplayed();
+    }
+
+    public boolean lastNameFieldDisplayed() {
+        return getLastName().isDisplayed();
+    }
+
+    public boolean emailAddressFieldDisplayed() {
+        return getEmailAddress().isDisplayed();
+    }
+
+    public boolean closeBtnDisplayed() {
+        return getCloseBtn().isDisplayed();
+    }
+
+    public boolean loginFrameIsVisible() {
+        waitForVisibility(getLogo());
+        waitForVisibility(getSubmit());
+        waitForVisibility(getCreateBtn());
+        return logoIsDisplayed() && loginBtnIsDisplayed() && signUpBtnIsDisplayed();
+    }
+
+    public boolean signupFrameIsVisible() {
+        waitForVisibility(getFirstName());
+        waitForVisibility(getLastName());
+        waitForVisibility(getEmailAddress());
+        waitForVisibility(getCloseBtn());
+        return firstNameFieldDisplayed() && lastNameFieldDisplayed() && emailAddressFieldDisplayed()
+                && closeBtnDisplayed();
+    }
+
+    public void switchToLogin(Driver driver) {
+        driver.getDriver().switchTo().frame(getiFrame());
+    }
+
+    public void fillSignUpForm(String name, String lastName, String email, String pass) {
+        typeOfInput(getFirstName(),name);
+        typeOfInput(getLastName(), lastName);
+        typeOfInput(getEmailAddress(), email);
+        typeOfInput(getUserPass(), pass);
+    }
+
+    public String getUserNameText() {
+        return getUserName().getText();
+    }
 }

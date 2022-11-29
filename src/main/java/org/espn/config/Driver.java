@@ -31,4 +31,16 @@ public class Driver {
         return driver;
     }
 
+    public void goBack() {
+        getDriver().navigate().back();
+    }
+
+    public void refresh() { getDriver().navigate().refresh(); }
+
+    public void deleteCookies() { getDriver().manage().deleteAllCookies(); }
+
+    public void goToUrl(String url) { getDriver().get(url); }
+
+    public void maximize() { getDriver().manage().window().maximize(); }
+
 }

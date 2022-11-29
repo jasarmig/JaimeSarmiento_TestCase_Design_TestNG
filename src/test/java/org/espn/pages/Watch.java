@@ -60,4 +60,24 @@ public class Watch extends Homepage{
     public List<WebElement> getTileMetas() {
         return tileMetas;
     }
+
+    public int countCarousels() {
+        return getCarouselList().size();
+    }
+
+    public int countCarouselTiles() {
+        return getFirstCarouselTiles().size();
+    }
+
+    public int countTitleTiles() {
+        return getTileTitles().size();
+    }
+
+    public int countTitleMetas() {
+        return getTileMetas().size();
+    }
+
+    public boolean closePopupBtnDisplayed() {
+        return getClosePopupBtn().isDisplayed();
+    }
 }

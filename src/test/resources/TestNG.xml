@@ -5,18 +5,14 @@
         <listener class-name="org.espn.utils.Listener"/>
     </listeners>
 
-    <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>
-    <parameter name="user" value="je.sarmiento+espn@globant.com"/>
-    <parameter name="pass" value="N0seasap0"/>
     <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>
+    <parameter name="name" value="Jaime"/>
+    <parameter name="lastName" value="Sarmiento"/>
+    <parameter name="email" value="je.sarmiento+601@globant.com"/>
+    <parameter name="pass" value="N0seasap0"/>
 
-    <test name="Watch Test">
-        <groups>
-            <run>
-                <include name="watch"/>
-            </run>
-        </groups>
-
+    <test name="Web Test">
         <classes>
             <class name="org.espn.tests.UserTests"/>
         </classes>

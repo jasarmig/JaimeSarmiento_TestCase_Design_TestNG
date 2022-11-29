@@ -18,21 +18,18 @@ public class BaseTests {
 
 
     @Parameters({"browser","url"})
-    @BeforeTest(groups = {"logout","watch","deactivate"})
+    @BeforeTest
     public void testSetup(String browser, String url){
         driver = new Driver(browser);
         Reporter.info("Deleting cookies");
-        driver.getDriver().manage().deleteAllCookies();
+        driver.deleteCookies();
         Reporter.info(format("Navigating to %s", url));
-        driver.getDriver().get(url);
-        driver.getDriver().manage().window().maximize();
+        driver.goToUrl(url);
+        driver.maximize();
         homepage = new Homepage(driver.getDriver());
-        driver.getDriver().switchTo().frame(homepage.getBannerFrame());
-        homepage.clickElement(homepage.getBannerCloseBtn());
-        frame = new IFrame(driver.getDriver());
     }
 
-    @AfterTest(groups = {"logout","watch","deactivate"})
+    @AfterTest
     public void endTest(){
         driver.getDriver().quit();
     }
